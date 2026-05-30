@@ -1,24 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>KHU's blog</title>
-  </head>
-  <body>
-    <div>
-      <h1><a href="">KHU's blog</a></h1>
-    </div>
+<head>
+    <title>My Portrait - Siti Nur Irdina</title>
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext"
+          rel="stylesheet" type="text/css">
+    <link rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+</head>
+<body>
 
-    <div>
-      <p>published: 14.06.2014, 12:14</p>
-      <h2><a href="">My first post</a></h2>
-      <p>Practice makes perfect!</p>
-      <p>Mobile Web Service </p>
-    </div>
+<!-- Header -->
+<div class="page-header">
+    <h1><a href="/">My Portrait - Siti Nur Irdina</a></h1>
+</div>
 
-    <div>
-      <p>published: 14.06.2014, 12:14</p>
-      <h2><a href="">My second post</a></h2>
-      <p>SITI NUR IRDINA BINTI MOHD RIZAL</p>
-      <p>2023100259L</p>
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <!-- Static portrait content -->
+            <div class="post">
+                <center>
+                    <h2>&lt; My Portrait &gt;</h2>
+                    <p>Siti Nur Irdina | 2023100259</p>
+                </center>
+                <hr align="center" width="10px">
+                <p>I was born and raised under the warm sun of Malaysia,
+                where the air smells of rain and the sky is always full of colour.</p>
+                <p>Growing up, I was the kind of girl who asked too many questions,
+                stayed up too late reading, and always had something on her mind.</p>
+                <p>Sometimes I look at myself and wonder — who is this person?</p>
+                <p>A student far from home, sitting in a classroom in Korea,
+                learning things she never imagined she would learn.</p>
+                <p>There are days I feel lost, like a stranger in my own story.
+                I turn away from the mirror and tell myself to keep going.</p>
+                <p>But when I look back, I see someone who crossed oceans,
+                who chose the harder path, who kept showing up anyway.</p>
+                <p>And slowly, I stop hating that girl in the mirror.</p>
+                <p>Because she is still here — still trying, still learning,
+                still becoming someone worth knowing.</p>
+                <p>Under the warm Malaysian sun, and now under Korean skies,
+                Siti Nur Irdina is finding her way.</p>
+            </div>
+
+            <!-- Dynamic blog posts from database -->
+            {% for post in posts %}
+            <div class="post">
+                <div class="date">
+                    <p>published: {{ post.published_date }}</p>
+                </div>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <!-- Aside -->
+        <div class="col-md-4">
+            <aside>
+                <h2>More About Me</h2>
+                <ul>
+                    <li>Name: Siti Nur Irdina</li>
+                    <li>Student ID: 2023100259</li>
+                    <li>From: Malaysia</li>
+                    <li>University: Kyung Hee University</li>
+                    <li>Major: Mobile/Web Service Programming</li>
+                    <li>Hobbies: Watching Movies, Travelling</li>
+                    <li>Favourite Food: Nasi Lemak</li>
+                    <li>Favourite Season: Autumn</li>
+                    <li>Currently Learning: Django, HTML5, Java</li>
+                    <li>Dream: To build something meaningful</li>
+                </ul>
+            </aside>
+        </div>
+
     </div>
-  </body>
+</div>
+
+<!-- Footer -->
+<footer style="padding: 20px 40px;">
+    <small>©Web Service Programming @2026 | Siti Nur Irdina | Kyung Hee University</small>
+</footer>
+
+</body>
 </html>
