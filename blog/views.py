@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+from rest_framework import viewsets
+from .serializers import PostSerializer
 
 def post_list(request):
     posts = Post.objects.filter(
@@ -39,3 +41,7 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+class IntruderImage(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
