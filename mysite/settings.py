@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5+qzdvw=3)ph$p7@v%ujuxdu-*-enp^+-9zv0rkeao4y!7+%8f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '10.0.2.2', '.pythonanywhere.com']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',   # ← add this line
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
